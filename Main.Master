@@ -1,0 +1,183 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="Project.Main" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css">
+
+    <style>
+/** {
+  box-sizing: border-box;
+}*/
+/*
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+*/
+
+.aside {
+ 
+  padding: 20px;  
+  text-align: center;
+  font-size: 14px;
+ 
+}
+
+.aside1 {
+ 
+  padding: 20px;  
+  font-size: 14px;
+ 
+}
+
+
+@media only screen and (min-width: 390px) {
+    .autoDiv{width:90%;}
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+
+   
+        .navbar
+        {
+            background-color:teal;           
+        }
+        .navbar ul li 
+        {
+            color:white;    
+        }
+        .navbar-default .navbar-nav li a 
+        {
+            color: white;
+        }        
+        a
+        {
+            font-size:medium;
+            font-weight:bold;
+        }
+        li:hover
+        {
+            background-color:white;           
+        }
+        .active
+        {
+            color:blueviolet;
+        }
+        .card 
+        {
+            box-shadow: 0 12px 23px 0 rgb(0 0 0 / 70%), 0 6px 25px 0 rgb(0 0 0 / 19%);
+            text-align: center;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body id="bodytag" runat="server">
+
+    <form id="form1" runat="server">
+        <asp:Panel ID="PDefault" runat="server">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">                        
+                    <ul class="nav navbar-nav">              
+                        <li><a href="Home.aspx">Home</a></li>
+                        <li><a href="VerifyCertificate.aspx">Verify Cerificate</a></li>                    
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="#About">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="#Features">Features</a>
+                        </li>
+                        <li><a href="AdminLogin.aspx">Admin Login</a></li>  
+                        <li><a href="Login.aspx">Student Login</a></li>  
+                    </ul>
+                </div>
+            </nav>  
+        </asp:Panel>
+
+        <asp:Panel ID="PLogin" runat="server">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">                        
+                    <ul class="nav navbar-nav">              
+                        <li><a href="Home.aspx">Home</a></li>
+                        <li><a href="VerifyCertificate.aspx">Verify Cerificate</a></li>                    
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">                      
+                        <li><a href="AdminLogin.aspx">Admin Login</a></li>  
+                        <li><a href="Login.aspx">Student Login</a></li>  
+                    </ul>
+                </div>
+            </nav>  
+        </asp:Panel>
+
+        <asp:Panel ID="PAdmin" runat="server">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">                        
+                    <ul class="nav navbar-nav">              
+                        
+                        <li><a href="GenCertificate.aspx">Generate Certificate</a></li>
+                        <li><a href="Bulk Certificate Generation.aspx">Bulk Generate Certificate</a></li>
+                                  
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="Login.aspx">Logout</a></li>  
+                    </ul>
+                </div>
+            </nav>  
+        </asp:Panel>
+
+        <asp:Panel ID="PStudent" runat="server">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">                        
+                    <ul class="nav navbar-nav">              
+                        <li><a id="prf" runat="server" onserverclick="profile">Profile</a></li>
+                        <li><a id="chngp" runat="server" onserverclick="ChangePass">Change Password</a></li>                        
+                        <li><a id="viewdown" runat="server" onserverclick="CerViewDown">Certificates</a></li>                        
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="Login.aspx">Logout</a></li>  
+                    </ul>
+                </div>
+            </nav>  
+        </asp:Panel>
+        
+
+        <div >
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
